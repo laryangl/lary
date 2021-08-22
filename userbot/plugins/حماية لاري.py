@@ -85,9 +85,9 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             USER_BOT_WARN_ZERO = f"**You were spamming my master** {my_mention}**'s inbox, henceforth you have been blocked.**"
         msg = await event.reply(USER_BOT_WARN_ZERO)
         await event.client(functions.contacts.BlockRequest(chat.id))
-        the_message = f"#BLOCKED_PM\
-                            \n[{get_display_name(chat)}](tg://user?id={chat.id}) is blocked\
-                            \n**Message Count:** {PM_WARNS[str(chat.id)]}"
+        the_message = f"#المحظورين_الحمايه\
+                            \n[{get_display_name(chat)}](tg://user?id={chat.id}) تم حظره\
+                            \n⌔︙ عدد الرسائل: {PM_WARNS[str(chat.id)]}"
         del PM_WARNS[str(chat.id)]
         sql.del_collection("pmwarns")
         sql.del_collection("pmmessagecache")
@@ -119,17 +119,17 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
             remwarns=remwarns,
         )
     elif gvarstatus("pmmenu") is None:
-        USER_BOT_NO_WARN = f"""__Hi__ {mention}__, I haven't approved you yet to personal message me. 
+        USER_BOT_NO_WARN = f"""ههلا بيك {mention} \n مالك الحساب غير موجود حاليا الرجاء الانتظار وعدم تكرار الرسائل. 
 
-You have {warns}/{totalwarns} warns until you get blocked by the CatUserbot.
+لديك {warns}/{totalwarns} من التحذيرات لا تكرر حتى ما تنحظر من البوت.
 
-Choose an option from below to specify the reason of your message and wait for me to check it. __⬇️"""
+اختر احد الخيارات في الاسفل وانتظر الى ان اصبح متصلا بالانترنت ليتم الرد عليك ⬇️⬇️"""
     else:
-        USER_BOT_NO_WARN = f"""__Hi__ {mention}__, I haven't approved you yet to personal message me.
+        USER_BOT_NO_WARN = f"""ههلا بيك {mention} \n مالك الحساب غير موجود حاليا الرجاء الانتظار وعدم تكرار الرسائل.
 
-You have {warns}/{totalwarns} warns until you get blocked by the CatUserbot.
+لديك {warns}/{totalwarns} من التحذيرات لا تكرر حتى ما تنحظر من البوت.
 
-Don't spam my inbox. say reason and wait until my response.__"""
+لا تـكرر اذكـر سبب مـجيئك فقـط"""
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
     PM_WARNS[str(chat.id)] += 1
     try:
@@ -187,7 +187,7 @@ async def do_pm_options_action(event, chat):
     except AttributeError:
         PMMESSAGE_CACHE = {}
     if str(chat.id) not in PM_WARNS:
-        text = "__Select option from above message and wait. Don't spam my inbox, this is your last warning.__"
+        text = "⌔︙ اخـتار احـد الخيارات في الأعـلى ولا تكرر اختيـارك وهذا اخـر تحـذير لـك"
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
         sql.del_collection("pmwarns")
