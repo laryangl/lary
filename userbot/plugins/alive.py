@@ -25,11 +25,11 @@ plugin_category = "utils"
 
 
 @catub.cat_cmd(
-    pattern="alive$",
-    command=("alive", plugin_category),
+    pattern="فحص$",
+    command=("فحص", plugin_category),
     info={
-        "header": "To check bot's alive status",
-        "options": "To show media in this cmd you need to set ALIVE_PIC with media link, get this by replying the media by .tgm",
+        "header": "للتحقق من حاله تشغيل البوت",
+        "options": "اذا كنت تريد عرض ميديا داخل الفحص ضع ALIVE_PIC مع رابط الميديا, وللحصول على الرابط اكتب بالرد على الصوره .tgm",
         "usage": [
             "{tr}alive",
         ],
@@ -44,9 +44,9 @@ async def amireallyalive(event):
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "  - ༻ "
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ MY BOT IS RUNNING SUCCESSFULLY ✮**"
-    CAT_IMG = gvarstatus("ALIVE_PIC")
+    CAT_IMG = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/636465f8d4ffc5ee93bb2.jpg"
     cat_caption = gvarstatus("ALIVE_TEMPLATE") or temp
     caption = cat_caption.format(
         ALIVE_TEXT=ALIVE_TEXT,
@@ -80,12 +80,12 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-**{EMOJI} Database :** `{dbhealth}`
-**{EMOJI} Telethon Version :** `{telever}`
-**{EMOJI} Catuserbot Version :** `{catver}`
-**{EMOJI} Python Version :** `{pyver}`
-**{EMOJI} Uptime :** `{uptime}`
-**{EMOJI} Master:** {mention}"""
+**{EMOJI} قاعدة البيانات :** `{dbhealth}`
+**{EMOJI} اصدار تليثون :** `{telever}`
+**{EMOJI} اصدار لاري :** `{catver}`
+**{EMOJI} اصدار بايثون :** `{pyver}`
+**{EMOJI} وقت التشغيل :** `{uptime}`
+**{EMOJI} المطور:** {mention}"""
 
 
 @catub.cat_cmd(
