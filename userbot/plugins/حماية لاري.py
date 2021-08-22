@@ -187,7 +187,9 @@ async def do_pm_options_action(event, chat):
     except AttributeError:
         PMMESSAGE_CACHE = {}
     if str(chat.id) not in PM_WARNS:
-        text = "⌔︙ اخـتار احـد الخيارات في الأعـلى ولا تكرر اختيـارك وهذا اخـر تحـذير لـك"
+        text = (
+            "⌔︙ اخـتار احـد الخيارات في الأعـلى ولا تكرر اختيـارك وهذا اخـر تحـذير لـك"
+        )
         await event.reply(text)
         PM_WARNS[str(chat.id)] = 1
         sql.del_collection("pmwarns")
