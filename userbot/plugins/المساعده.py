@@ -12,13 +12,13 @@ cmdprefix = Config.COMMAND_HAND_LER
 plugin_category = "tools"
 
 hemojis = {
-    "admin": "👮‍♂️",
-    "bot": "🤖",
-    "fun": "🎨",
-    "misc": "🧩",
-    "tools": "🧰",
-    "utils": "🗂",
-    "extra": "➕",
+    "الادمن": "👮‍♂️",
+    "البوت": "🤖",
+    "تسليه": "🎨",
+    "الاغاني": "🧩",
+    "اوامر البوت": "🧰",
+    "الملفاات": "🗂",
+    "اشياء اخرى": "➕",
 }
 
 
@@ -126,8 +126,8 @@ async def cmdlist():
 
 
 @catub.cat_cmd(
-    pattern="help ?(-c|-p|-t)? ?([\s\S]*)?",
-    command=("help", plugin_category),
+    pattern="الاوامر ?(-c|-p|-t)? ?([\s\S]*)?",
+    command=("الاوامر", plugin_category),
     info={
         "header": "To get guide for catuserbot.",
         "description": "To get information or guide for the command or plugin",
