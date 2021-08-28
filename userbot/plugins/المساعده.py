@@ -9,7 +9,7 @@ from ..helpers.utils import reply_id
 
 cmdprefix = Config.COMMAND_HAND_LER
 
-plugin_category = "الملفات"
+plugin_category = "الاوامر"
 
 hemojis = {
     "الادمن": "👮‍♂️",
