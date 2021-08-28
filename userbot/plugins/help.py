@@ -1,3 +1,5 @@
+#!/usr/bin/evn python
+# -*- coding: utf-8 -*-
 from telethon import functions
 
 from userbot import catub
