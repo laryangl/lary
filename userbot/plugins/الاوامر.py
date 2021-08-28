@@ -138,8 +138,8 @@ async def cmdlist():
             "t": "To get all plugins in text format.",
         },
         "usage": [
-            "{tr}help (plugin/command name)",
-            "{tr}help -c (command name)",
+            "{tr}الاوامر (plugin/command name)",
+            "{tr}الاوامر -c (command name)",
         ],
         "examples": ["{tr}help help", "{tr}help -c help"],
     },
