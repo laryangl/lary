@@ -184,8 +184,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
 
 @catub.cat_cmd(
-    pattern="update(| now)?$",
-    command=("update", plugin_category),
+    pattern="تحديث(| الان)?$",
+    command=("تحديث", plugin_category),
     info={
         "header": "To update userbot.",
         "description": "I recommend you to do update deploy atlest once a week.",
@@ -270,7 +270,7 @@ async def upstream(event):
         await event.edit(
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
-    if conf == "now":
+    if conf == "الان":
         await event.edit("`Updating userbot, please wait....`")
         await update(event, repo, ups_rem, ac_br)
     return
