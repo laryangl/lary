@@ -188,6 +188,7 @@ async def show_welcome(event):
         )
         await event.reply(cws.reply)
 
+
 @catub.cat_cmd(
     pattern="الترحيب السابق (تشغيل|ايقاف)$",
     command=("الترحيب السابق", plugin_category),
