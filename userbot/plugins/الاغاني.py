@@ -1,3 +1,4 @@
+import asyncio
 import base64
 import io
 import os
@@ -5,11 +6,12 @@ from pathlib import Path
 
 from ShazamAPI import Shazam
 from telethon import types
+from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
 from youtubesearchpython import Video
 
-from userbot import jmthon
+from userbot import catub
 
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
@@ -27,15 +29,13 @@ LOGS = logging.getLogger(__name__)
 SONG_SEARCH_STRING = "⌔︙ جاري البحث عن الاغنية إنتظر رجاءًا  🎧"
 SONG_NOT_FOUND = "⌔︙ لم أستطع إيجاد هذه الأغنية  ⚠️"
 SONG_SENDING_STRING = "⌔︙ قم بإلغاء حظر البوت  🚫"
-SONGBOT_BLOCKED_STRING = (
-    "<code>الـرجاء الـغاء حـظر @songdl_bot و الـمحاولة مـرة اخـرى</code>"
-)
+SONGBOT_BLOCKED_STRING = "<code>الـرجاء الـغاء حـظر @songdl_bot و الـمحاولة مـرة اخـرى</code>"
 # =========================================================== #
 #                                                             #
 # =========================================================== #
 
 
-@jmthon.ar_cmd(
+@catub.cat_cmd(
     pattern="بحث(320)?(?:\s|$)([\s\S]*)",
     command=("بحث", plugin_category),
     info={
@@ -59,9 +59,7 @@ async def _(event):
     else:
         return await edit_or_reply(event, "**⌔ ︙ما الذي تريد أن أبحث عنه  **")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(
-        event, "**⌔︙ لقـد عـثرت عـلى المطلـوب إنتظر قليلا  **"
-    )
+    catevent = await edit_or_reply(event, "**⌔︙ لقـد عـثرت عـلى المطلـوب إنتظر قليلا  **")
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
@@ -98,7 +96,7 @@ async def _(event):
         catthumb = Path(f"{catname}.webp")
     elif not os.path.exists(catthumb):
         catthumb = None
-
+        
     ytdata = Video.get(video_link)
     await event.client.send_file(
         event.chat_id,
@@ -125,7 +123,7 @@ async def delete_messages(event, chat, from_message):
     await event.client.send_read_acknowledge(chat)
 
 
-@jmthon.ar_cmd(
+@catub.cat_cmd(
     pattern="فيديو(?:\s|$)([\s\S]*)",
     command=("فيديو", plugin_category),
     info={
@@ -136,7 +134,7 @@ async def delete_messages(event, chat, from_message):
     },
 )
 async def _(event):
-    "⌔︙ للبحث عن فيديوات أغاني"
+    "⌔︙ للبحث عن فيديوات أغاني  "
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
@@ -146,9 +144,7 @@ async def _(event):
     else:
         return await edit_or_reply(event, "**⌔︙ يجـب وضـع  الأمر وبجانبه إسم الأغنية  ")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(
-        event, "**⌔︙ لقـد وجدت الفيديو المطلوب إنتظر قليلا  "
-    )
+    catevent = await edit_or_reply(event, "**⌔︙ لقـد وجدت الفيديو المطلوب إنتظر قليلا  ")
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
@@ -185,7 +181,7 @@ async def _(event):
         catthumb = Path(f"{catname}.webp")
     elif not os.path.exists(catthumb):
         catthumb = None
-
+        
         ytdata = Video.get(video_link)
     await event.client.send_file(
         event.chat_id,
@@ -203,7 +199,7 @@ async def _(event):
             os.remove(files)
 
 
-@jmthon.ar_cmd(
+@catub.cat_cmd(
     pattern="نتائج البحث$",
     command=("نتائج البحث", plugin_category),
     info={
@@ -213,7 +209,7 @@ async def _(event):
     },
 )
 async def shazamcmd(event):
-    "للـبحث عن اغنـية."
+    " للـبحث عن اغنـية."
     reply = await event.get_reply_message()
     mediatype = media_type(reply)
     if not reply or not mediatype or mediatype not in ["Voice", "Audio"]:
