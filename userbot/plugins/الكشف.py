@@ -71,7 +71,7 @@ async def fetch_info(replied_user, event):
     return photo, caption
 
 
-@catub.ar_cmd(
+@catub.cat_cmd(
     pattern="كشف(?:\s|$)([\s\S]*)",
     command=("كشف", plugin_category),
     info={
@@ -143,7 +143,7 @@ async def _(event):
     await edit_or_reply(catevent, caption)
 
 
-@catub.ar_cmd(
+@catub.cat_cmd(
     pattern="ايدي(?:\s|$)([\s\S]*)",
     command=("ايدي", plugin_category),
     info={
@@ -187,7 +187,7 @@ async def who(event):
 
 # كـتابة  @RRRD7
 # تعديل وترتيب  @SBB_B
-@catub.ar_cmd(
+@catub.cat_cmd(
     pattern="رابط الحساب(?:\s|$)([\s\S]*)",
     command=("رابط الحساب", plugin_category),
     info={
