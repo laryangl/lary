@@ -10,6 +10,7 @@ plugin_category = "admin"
 # Copyright (C) 2021 catub TEAM
 # FILES WRITTEN BY  @RRRD7
 
+
 @catub.cat_cmd(
     pattern="تحذير(?:\s|$)([\s\S]*)",
     command=("تحذير", plugin_category),
@@ -48,7 +49,10 @@ async def _(event):
         if warn_reason:
             reply += "\nسبـب أخـر تحـذير:\n{}".format(html.escape(warn_reason))
     await edit_or_reply(event, reply)
-#ملف التحذيرات بواسطه جمثون
+
+
+# ملف التحذيرات بواسطه جمثون
+
 
 @catub.cat_cmd(
     pattern="التحذيرات",
