@@ -1,7 +1,3 @@
-# ======================================================================================================================================
-# ping -> edited ping with pic by  @RRRD7
-# كتابة الملف لسورس جمثون فقط ممنوع نسبه لنفسك
-# تخمط دليل فشلك اخمط وكول اني مطور 😂😂
 
 import os
 from datetime import datetime
@@ -19,10 +15,10 @@ except:
 plugin_category = "tools"
 
 PING_PIC = os.environ.get("PING_PIC") or (
-    "https://telegra.ph/file/502a2c9751c3c06222c51.jpg"
+    "https://telegra.ph/file/1700c83603e7d29b82ffc.png"
 )
 
-JM_TXT = os.environ.get("PING_TEXT") or "مـن لا يتعلم من الماضي لا يرحمه المستقبل  . 🖤"
+JM_TXT = os.environ.get("PING_TEXT") or ""I wish to meet you in Tokyo in the city of love and love and tears and laughs and sing together" your looks embarrass me and forget where I am" and laugh and exchange looks ."
 
 
 @catub.cat_cmd(
@@ -30,7 +26,7 @@ JM_TXT = os.environ.get("PING_TEXT") or "مـن لا يتعلم من الماض�
     command=("بنك", plugin_category),
     info={
         "header": "امر تجربه البوت اذا يشتغل ارسل  .بنك فقط",
-        "option": "امر بنك المتطور كتابة  @RRRD7",
+        "option": "امر بنك المتطور كتابة  @",
         "usage": [
             "{tr}بنك",
         ],
