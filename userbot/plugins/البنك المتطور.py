@@ -18,7 +18,7 @@ PING_PIC = os.environ.get("PING_PIC") or (
     "https://telegra.ph/file/1700c83603e7d29b82ffc.png"
 )
 
-JM_TXT = os.environ.get("PING_TEXT") or ""I wish to meet you in Tokyo in the city of love and love and tears and laughs and sing together" your looks embarrass me and forget where I am" and laugh and exchange looks ."
+JM_TXT = os.environ.get("PING_TEXT") or "I wish to meet you in Tokyo in the city of love and love and tears and laughs and sing together" your looks embarrass me and forget where I am" and laugh and exchange looks ."
 
 
 @catub.cat_cmd(
