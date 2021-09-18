@@ -24,9 +24,9 @@ LOGS = logging.getLogger(__name__)
 # =========================================================== #
 #                           STRINGS                           #
 # =========================================================== #
-SONG_SEARCH_STRING = "⌔︙ جاري البحث عن الاغنية إنتظر رجاءًا  🎧"
-SONG_NOT_FOUND = "⌔︙ لم أستطع إيجاد هذه الأغنية  ⚠️"
-SONG_SENDING_STRING = "⌔︙ قم بإلغاء حظر البوت  🚫"
+SONG_SEARCH_STRING = "❆︙ صبر جاي ادور"
+SONG_NOT_FOUND = "❆︙ مال لكيت شي"
+SONG_SENDING_STRING = "❆︙ فك الحضر من البوت ليش لازكه "
 SONGBOT_BLOCKED_STRING = (
     "<code>الـرجاء الـغاء حـظر @songdl_bot و الـمحاولة مـرة اخـرى</code>"
 )
@@ -49,7 +49,7 @@ SONGBOT_BLOCKED_STRING = (
     },
 )
 async def _(event):
-    "⌔︙ للبحث عن أغاني  🎧"
+    "❆︙ للبحث عن أغاني  🎧"
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
     if event.pattern_match.group(2):
@@ -57,15 +57,15 @@ async def _(event):
     elif reply and reply.message:
         query = reply.message
     else:
-        return await edit_or_reply(event, "**⌔ ︙ما الذي تريد أن أبحث عنه  **")
+        return await edit_or_reply(event, "**❆ ︙جاي تدور  **")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     catevent = await edit_or_reply(
-        event, "**⌔︙ لقـد عـثرت عـلى المطلـوب إنتظر قليلا  **"
+        event, "**❆︙صبر شوي لكيته  **"
     )
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
-            f"**⌔︙ عـذرًا لم استطيع ايجاد المقطع الصوتي  أو الفيديو لـ ** `{query}`"
+            f"**❆︙ جاي ابحوش للاسف ملكيت شي** `{query}`"
         )
     cmd = event.pattern_match.group(1)
     q = "320k" if cmd == "320" else "128k"
@@ -79,10 +79,10 @@ async def _(event):
         pass
     stderr = (await _catutils.runcmd(song_cmd))[1]
     if stderr:
-        return await catevent.edit(f"**⌔︙ خـطأ  :** `{stderr}`")
+        return await catevent.edit(f"**❆︙ غلط  :** `{stderr}`")
     catname, stderr = (await _catutils.runcmd(name_cmd))[:2]
     if stderr:
-        return await catevent.edit(f"**⌔︙ خـطأ   :** `{stderr}`")
+        return await catevent.edit(f"**❆︙ غلط   :** `{stderr}`")
     # stderr = (await runcmd(thumb_cmd))[1]
     catname = os.path.splitext(catname)[0]
     # if stderr:
@@ -90,9 +90,9 @@ async def _(event):
     song_file = Path(f"{catname}.mp3")
     if not os.path.exists(song_file):
         return await catevent.edit(
-            f"**⌔︙ عـذرًا لم أستطع إيجاد الأغنية أو الفيديو لـ  ** `{query}`"
+            f"**❆︙ عـذرًا لم أستطع إيجاد الأغنية أو الفيديو لـ  ** `{query}`"
         )
-    await catevent.edit("**⌔︙  المطلوب لقد وجدت إنتظر قليلا  ⏱**")
+    await catevent.edit("**❆︙  المطلوب لقد وجدت إنتظر قليلا  ⏱**")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
         catthumb = Path(f"{catname}.webp")
@@ -136,7 +136,7 @@ async def delete_messages(event, chat, from_message):
     },
 )
 async def _(event):
-    "⌔︙ للبحث عن فيديوات أغاني"
+    "❆︙ للبحث عن فيديوات أغاني"
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
@@ -144,25 +144,25 @@ async def _(event):
     elif reply and reply.message:
         query = reply.message
     else:
-        return await edit_or_reply(event, "**⌔︙ يجـب وضـع  الأمر وبجانبه إسم الأغنية  ")
+        return await edit_or_reply(event, "**❆︙حط الانر بصف الاغنيه  ")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     catevent = await edit_or_reply(
-        event, "**⌔︙ لقـد وجدت الفيديو المطلوب إنتظر قليلا  "
+        event, "**❆︙صبر شوي لكيته  "
     )
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
-            f"**⌔︙ عـذرًا لم أستطع إيجاد أي فيديو او صوت متعلق بـ ** `{query}`"
+            f"**❆︙ سوري اكو خطاء ** `{query}`"
         )
     # thumb_cmd = thumb_dl.format(video_link=video_link)
     name_cmd = name_dl.format(video_link=video_link)
     video_cmd = video_dl.format(video_link=video_link)
     stderr = (await _catutils.runcmd(video_cmd))[1]
     if stderr:
-        return await catevent.edit(f"**⌔︙ خـطأ  :** `{stderr}`")
+        return await catevent.edit(f"**❆︙ غلط  :** `{stderr}`")
     catname, stderr = (await _catutils.runcmd(name_cmd))[:2]
     if stderr:
-        return await catevent.edit(f"**⌔︙ خـطأ  ️ :** `{stderr}`")
+        return await catevent.edit(f"**❆︙ غلط  ️ :** `{stderr}`")
     # stderr = (await runcmd(thumb_cmd))[1]
     try:
         cat = Get(cat)
@@ -177,9 +177,9 @@ async def _(event):
         vsong_file = Path(f"{catname}.mkv")
     elif not os.path.exists(vsong_file):
         return await catevent.edit(
-            f"**⌔︙ عـذرًا لم أستطع إيجاد أي فيديو او صوت متعلق بـ ** `{query}`"
+            f"**❆︙ سوري اكو خطاء ** `{query}`"
         )
-    await catevent.edit("**⌔︙لقد وجدت الفديو المطلوب انتظر قليلا  **")
+    await catevent.edit("**❆︙صبر حبيبي لكيتلك الفيديو   **")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
         catthumb = Path(f"{catname}.webp")
@@ -218,9 +218,9 @@ async def shazamcmd(event):
     mediatype = media_type(reply)
     if not reply or not mediatype or mediatype not in ["Voice", "Audio"]:
         return await edit_delete(
-            event, "⌔︙ قم بالرد على الرسالة الصوتية لعكس البحث عن هذه الأغنية  "
+            event, "❆︙ برو رد عل رساله وبحث  "
         )
-    catevent = await edit_or_reply(event, "⌔︙جاري تحميل المقطع الصوتي  ")
+    catevent = await edit_or_reply(event, "❆︙صبر شوس دلحمله  ")
     try:
         for attr in getattr(reply.document, "attributes", []):
             if isinstance(attr, types.DocumentAttributeFilename):
@@ -238,11 +238,11 @@ async def shazamcmd(event):
     except Exception as e:
         LOGS.error(e)
         return await edit_delete(
-            catevent, f"**⌔︙هناك خطأ عند محاولة البحث عن الأغنية   :**\n__{str(e)}__"
+            catevent, f"**❆︙برو اكو خطاء عيد لبحث    :**\n__{str(e)}__"
         )
     image = track["images"]["background"]
     song = track["share"]["subject"]
     await event.client.send_file(
-        event.chat_id, image, caption=f"**⌔︙ الأغنية  :** `{song}`", reply_to=reply
+        event.chat_id, image, caption=f"**❆︙ الأغنية  :** `{song}`", reply_to=reply
     )
     await catevent.delete()
