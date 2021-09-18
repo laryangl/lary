@@ -49,14 +49,10 @@ async def fetch_info(replied_user, event):
         download_big=True,
     )
     first_name = (
-        first_name.replace("\u2060", "")
-        if first_name
-        else ("❆︙ اسمه الاول ماكو ")
+        first_name.replace("\u2060", "") if first_name else ("❆︙ اسمه الاول ماكو ")
     )
     last_name = last_name.replace("\u2060", "") if last_name else (" ")
-    username = (
-        "@{}".format(username) if username else ("❆︙ ضلعي هذا ماعنده معرف  ")
-    )
+    username = "@{}".format(username) if username else ("❆︙ ضلعي هذا ماعنده معرف  ")
     user_bio = "❆︙ ما مخلي نبذا خلي يحط وتدلل" if not user_bio else user_bio
     caption = "ⵧⵧⵧⵧⵧⵧ.•♫•♬•𝙡𝙖𝙧𝙮•♬•♫•.ⵧⵧⵧⵧⵧⵧ\n\n"
     caption += f"<b>- اسمه ›</b> {first_name} {last_name}\n"
@@ -164,9 +160,7 @@ async def who(event):
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        return await edit_or_reply(
-            cat, "**❆︙ ماكو هيج حساب  **"
-        )
+        return await edit_or_reply(cat, "**❆︙ ماكو هيج حساب  **")
     message_id_to_reply = await reply_id(event)
     try:
         await event.client.send_file(
