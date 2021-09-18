@@ -22,16 +22,16 @@ plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 
 # =========================================================== #
-#                           STRINGS                           #
+#                           STRINGS                           #BRAND
 # =========================================================== #
-SONG_SEARCH_STRING = "❆︙ صبر جاي ادور"
+SONG_SEARCH_STRING = "❆︙ صبر جاي ادور @CXRCX"
 SONG_NOT_FOUND = "❆︙ مال لكيت شي"
 SONG_SENDING_STRING = "❆︙ فك الحضر من البوت ليش لازكه "
 SONGBOT_BLOCKED_STRING = (
     "<code>الـرجاء الـغاء حـظر @songdl_bot و الـمحاولة مـرة اخـرى</code>"
 )
 # =========================================================== #
-#                                                             #
+#                                                             #BRAND
 # =========================================================== #
 
 
@@ -59,10 +59,14 @@ async def _(event):
     else:
         return await edit_or_reply(event, "**❆ ︙جاي تدور  **")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "**❆︙صبر شوي لكيته  **")
+    catevent = await edit_or_reply(
+        event, "**❆︙صبر شوي لكيته  **"
+    )
     video_link = await yt_search(str(query))
     if not url(video_link):
-        return await catevent.edit(f"**❆︙ جاي ابحوش للاسف ملكيت شي** `{query}`")
+        return await catevent.edit(
+            f"**❆︙ جاي ابحوش للاسف ملكيت شي** `{query}`"
+        )
     cmd = event.pattern_match.group(1)
     q = "320k" if cmd == "320" else "128k"
     song_cmd = song_dl.format(QUALITY=q, video_link=video_link)
@@ -88,7 +92,7 @@ async def _(event):
         return await catevent.edit(
             f"**❆︙ عـذرًا لم أستطع إيجاد الأغنية أو الفيديو لـ  ** `{query}`"
         )
-    await catevent.edit("**❆︙  المطلوب لقد وجدت إنتظر قليلا  ⏱**")
+    await catevent.edit("**صبر عمريي لكيتها **")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
         catthumb = Path(f"{catname}.webp")
@@ -142,10 +146,14 @@ async def _(event):
     else:
         return await edit_or_reply(event, "**❆︙حط الانر بصف الاغنيه  ")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "**❆︙صبر شوي لكيته  ")
+    catevent = await edit_or_reply(
+        event, "**❆︙صبر شوي لكيته  "
+    )
     video_link = await yt_search(str(query))
     if not url(video_link):
-        return await catevent.edit(f"**❆︙ سوري اكو خطاء ** `{query}`")
+        return await catevent.edit(
+            f"**❆︙ سوري اكو خطاء ** `{query}`"
+        )
     # thumb_cmd = thumb_dl.format(video_link=video_link)
     name_cmd = name_dl.format(video_link=video_link)
     video_cmd = video_dl.format(video_link=video_link)
@@ -168,7 +176,9 @@ async def _(event):
     if not os.path.exists(vsong_file):
         vsong_file = Path(f"{catname}.mkv")
     elif not os.path.exists(vsong_file):
-        return await catevent.edit(f"**❆︙ سوري اكو خطاء ** `{query}`")
+        return await catevent.edit(
+            f"**❆︙ سوري اكو خطاء ** `{query}`"
+        )
     await catevent.edit("**❆︙صبر حبيبي لكيتلك الفيديو   **")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
@@ -207,7 +217,9 @@ async def shazamcmd(event):
     reply = await event.get_reply_message()
     mediatype = media_type(reply)
     if not reply or not mediatype or mediatype not in ["Voice", "Audio"]:
-        return await edit_delete(event, "❆︙ برو رد عل رساله وبحث  ")
+        return await edit_delete(
+            event, "❆︙ برو رد عل رساله وبحث  "
+        )
     catevent = await edit_or_reply(event, "❆︙صبر شوس دلحمله  ")
     try:
         for attr in getattr(reply.document, "attributes", []):
