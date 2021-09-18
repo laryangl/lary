@@ -37,7 +37,7 @@ async def _(event):
     reply_to_id = await reply_id(event)
     start = datetime.now()
     cat = await edit_or_reply(
-        event, "<b><i>  ❤️⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃟✨ البــــنك... 🍀⃝⃝⃟🍂 </b></i>", "html"
+        event, "<b><i> .•♫•♬•𝙋𝙞𝙉𝙜•♬•♫•. </b></i>", "html"
     )
     end = datetime.now()
     await cat.delete()
