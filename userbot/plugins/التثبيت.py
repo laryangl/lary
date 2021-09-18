@@ -50,8 +50,8 @@ plugin_category = "admin"
 
 
 @catub.cat_cmd(
-    pattern="تثبيت( بالاشعار|$)",
-    command=("تثبيت", plugin_category),
+    pattern="الزك( بالاشعار|$)",
+    command=("الزك", plugin_category),
     info={
         "⌔︙ الأسـتخدام": "For pining messages in chat",
         "⌔︙ الشـرح": "reply to a message to pin it in that in chat\
@@ -82,17 +82,17 @@ async def pin(event):
     if BOTLOG and not event.is_private:
         await event.client.send_message(
             BOTLOG_CHATID,
-            f"⌔︙ الـتثبيت\
-                \n **⌔︙ تـم بـنجـاح الـتثبيت فـي الدردشـة**\
+            f"⌔︙ الـالزك\
+                \n **⌔︙ تـم بـنجـاح الـالزك فـي الدردشـة**\
                 \nالـدردشـة: {event.chat.title}(`{event.chat_id}`)\
-                \nالـتثبيت: {is_silent}",
+                \nالـالزك: {is_silent}",
         )
 
 
 # admin plugin for  catub
 @catub.cat_cmd(
-    pattern="الغاء التثبيت( للكل|$)",
-    command=("الغاء التثبيت", plugin_category),
+    pattern="الغاء الالزك( للكل|$)",
+    command=("الغاء الالزك", plugin_category),
     info={
         "header": "For unpining messages in chat",
         "description": "reply to a message to unpin it in that in chat\
@@ -105,13 +105,13 @@ async def pin(event):
     },
 )
 async def pin(event):
-    "⌔︙ لإلغاء تثبيت رسائل من المجموعة  ⚠️"
+    "⌔︙ لإلغاء الزك رسائل من المجموعة  ⚠️"
     to_unpin = event.reply_to_msg_id
     options = (event.pattern_match.group(1)).strip()
     if not to_unpin and options != "all":
         return await edit_delete(
             event,
-            "⌔︙ يرجى الرد على الرسالة التي تريد تثبيتها استخدم `.الغاء التثبيت للكل`  لالغاء تثبيت جميع الرسائل  📍",
+            "⌔︙ يرجى الرد على الرسالة التي تريد الزكها استخدم `.الغاء الالزك للكل`  لالغاء الزك جميع الرسائل  📍",
             5,
         )
     try:
@@ -122,18 +122,18 @@ async def pin(event):
         else:
             return await edit_delete(
                 event,
-                "⌔︙ يرجى الرد على الرسالة التي تريد تثبيتها استخدم `.الغاء التثبيت للكل`  لالغاء تثبيت جميع الرسائل  📍",
+                "⌔︙ يرجى الرد على الرسالة التي تريد الزكها استخدم `.الغاء الالزك للكل`  لالغاء الزك جميع الرسائل  📍",
                 5,
             )
     except BadRequestError:
         return await edit_delete(event, NO_PERM, 5)
     except Exception as e:
         return await edit_delete(event, f"`{str(e)}`", 5)
-    await edit_delete(event, "**⌔ ︙تم الغاء التثبيت بنجاح  ✅**", 3)
+    await edit_delete(event, "**⌔ ︙تم الغاء الالزك بنجاح  ✅**", 3)
     if BOTLOG and not event.is_private:
         await event.client.send_message(
             BOTLOG_CHATID,
-            f"**⌔︙ الـغاء التثبيت  ❗️ \
+            f"**⌔︙ الـغاء الالزك  ❗️ \
                 \n** ⌔︙ تم بنجاح الغاء التثبيـت في الدردشة  ✅ \
                 \n⌔︙الدردشـه  🔖 : {event.chat.title}(`{event.chat_id}`)",
         )
@@ -163,7 +163,7 @@ async def pin(event):
 )
 async def _iundlt(event):  # sourcery no-metrics
     "To check recent deleted messages in group"
-    catevent = await edit_or_reply(event, "⌔︙ يـتم الـبحث عن اخـر الاحداث")
+    catevent = await edit_or_reply(event, "⌔︙ يـتم الـبحث عن اخـر اخر شي صار ")
     flag = event.pattern_match.group(1)
     if event.pattern_match.group(2) != "":
         lim = int(event.pattern_match.group(2))
@@ -206,5 +206,3 @@ async def _iundlt(event):  # sourcery no-metrics
                 )
 
 
-# admin plugin for  catub
-# by  @RRRD7
