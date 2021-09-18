@@ -47,16 +47,16 @@ async def amireallyalive(event):
         cat_caption = f".•♫•♬•𝘿𝙚𝙫𝙚𝙡𝙤𝙥𝙚𝙧 𝙎𝙤𝙐𝙧𝙘𝙀•♬•♫•.\n"
         cat_caption += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧʏᴏʟᴀɴᴅⵧⵧⵧⵧⵧⵧⵧⵧ𓍻
 \n"
-        cat_caption += f"- .•♫•♬•𝙈𝙊𝙃𝘼𝙈𝙀𝘿 •♬•♫•.   :  @EEEEE1K\n"
-        cat_caption += f"- 𝙈𝙪𝙍𝙩𝘼𝙯𝙖  :  @𝘽𝘽𝘽𝙑𝙑𝘽𝙑\n"
-        cat_caption += f"- 𝙏𝙤𝙁𝙮  :   @𝙈𝙈𝙇𝙈𝙈𝙈\n"
+        cat_caption += f"- mohammed:  @EEEEE1K\n"
+        cat_caption += f"- murtaza:  @BBBVVBV\n"
+        cat_caption += f"- Tofy:   @MMLMMM\n"
         cat_caption += f"𓍹ⵧⵧⵧⵧⵧⵧⵧⵧʏᴏʟᴀɴᴅⵧⵧⵧⵧⵧⵧⵧⵧ𓍻
 \n"
         await event.client.send_file(
             event.chat_id, PIC, caption=cat_caption, reply_to=reply_to_id
         )
 
-@catub.on(CallbackQuery(data=re.compile(b"stats")))
+@catub.cat.on(CallbackQuery(data=re.compile(b"stats")))
 async def on_plug_in_callback_query_handler(event):
     statstext = await catalive(StartTime)
     await event.answer(statstext, cache_time=0, alert=True)
