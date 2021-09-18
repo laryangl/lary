@@ -91,8 +91,8 @@ async def pin(event):
 
 # admin plugin for  catub
 @catub.cat_cmd(
-    pattern="الغاء الالزك( للكل|$)",
-    command=("الغاء الالزك", plugin_category),
+    pattern="شيل الالزك( للكل|$)",
+    command=("شيل الالزك", plugin_category),
     info={
         "header": "For unpining messages in chat",
         "description": "reply to a message to unpin it in that in chat\
@@ -111,7 +111,8 @@ async def pin(event):
     if not to_unpin and options != "all":
         return await edit_delete(
             event,
-            "⌔︙ يرجى الرد على الرسالة التي تريد الزكها استخدم `.الغاء الالزك للكل`  لالغاء الزك جميع الرسائل  📍",
+      "شوف برو لازم تسوي رد عل رساله الازكه يله تنشال تمام ضلعي استخدم الامر   > `.شيل` <
+برو لا تنسى تابعنه @TTTYT_M",
             5,
         )
     try:
@@ -122,19 +123,20 @@ async def pin(event):
         else:
             return await edit_delete(
                 event,
-                "⌔︙ يرجى الرد على الرسالة التي تريد الزكها استخدم `.الغاء الالزك للكل`  لالغاء الزك جميع الرسائل  📍",
+شوف برو لازم تسوي رد عل رساله الازكه يله تنشال تمام ضلعي استخدم الامر   > `.شيل` <
+برو لا تنسى تابعنه @TTTYT_M
                 5,
             )
     except BadRequestError:
         return await edit_delete(event, NO_PERM, 5)
     except Exception as e:
         return await edit_delete(event, f"`{str(e)}`", 5)
-    await edit_delete(event, "**⌔ ︙تم الغاء الالزك بنجاح  ✅**", 3)
+    await edit_delete(event, "**⌔ ︙تم برو شلتها ولا يهمك  ✅**", 3)
     if BOTLOG and not event.is_private:
         await event.client.send_message(
             BOTLOG_CHATID,
             f"**⌔︙ الـغاء الالزك  ❗️ \
-                \n** ⌔︙ تم بنجاح الغاء التثبيـت في الدردشة  ✅ \
+                \n** ⌔︙ تم بنجاح شيل التثبيـت في الدردشة  ✅ \
                 \n⌔︙الدردشـه  🔖 : {event.chat.title}(`{event.chat_id}`)",
         )
 
@@ -204,3 +206,6 @@ async def _iundlt(event):  # sourcery no-metrics
                     f"{msg.old.message}\n⌔︙ ارسلت بواسطه {_format.mentionuser(ruser.first_name ,ruser.id)}",
                     file=msg.old.media,
                 )
+
+
+#لتحاول تنسخ اول سورس بلهجه عراقيه
