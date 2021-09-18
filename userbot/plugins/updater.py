@@ -203,13 +203,13 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 async def upstream(event):
     "To check if the bot is up to date and update if specified"
     conf = event.pattern_match.group(1).strip()
-    event = await edit_or_reply(event, "`اوك حبي اصبر دا ادور بلكت اكو شي نازل جديد....`")
+    event = await edit_or_reply(
+        event, "`اوك حبي اصبر دا ادور بلكت اكو شي نازل جديد....`"
+    )
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     if HEROKU_API_KEY is None or HEROKU_APP_NAME is None:
-        return await edit_or_reply(
-            event, "`روح لهيروكو حط اضبط الاكواد زين ماشي ضلعي`"
-        )
+        return await edit_or_reply(event, "`روح لهيروكو حط اضبط الاكواد زين ماشي ضلعي`")
     try:
         txt = "`Oops.. Updater cannot continue due to "
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
@@ -255,8 +255,7 @@ async def upstream(event):
     # Special case for deploy
     if changelog == "" and not force_update:
         await event.edit(
-            "\n`حبي`  **بوتك محدث **  `لضل لتلح`  "
-            f"**{UPSTREAM_REPO_BRANCH}**\n"
+            "\n`حبي`  **بوتك محدث **  `لضل لتلح`  " f"**{UPSTREAM_REPO_BRANCH}**\n"
         )
         return repo.__del__()
     if conf == "" and not force_update:
@@ -267,9 +266,7 @@ async def upstream(event):
         )
 
     if force_update:
-        await event.edit(
-            "`جاري مزامنه اكواد التحديث انتضر من فضلك بعض الوقت`"
-        )
+        await event.edit("`جاري مزامنه اكواد التحديث انتضر من فضلك بعض الوقت`")
     if conf == "هسه":
         await event.edit("`اوك حبيبي جاي يتحدث البوت صبر شوي....`")
         await update(event, repo, ups_rem, ac_br)
