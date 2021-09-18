@@ -50,9 +50,6 @@ async def _(event):
     await edit_or_reply(event, reply)
 
 
-
-
-
 @catub.cat_cmd(
     pattern="التحذيرات",
     command=("التحذيرات", plugin_category),
