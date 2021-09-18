@@ -208,7 +208,7 @@ async def upstream(event):
     force_update = False
     if HEROKU_API_KEY is None or HEROKU_APP_NAME is None:
         return await edit_or_reply(
-            event, "`Set the required vars first to update the bot`"
+            event, "`اضبط المتغيرات المطلوبة أولاً لتحديث الروبوت`"
         )
     try:
         txt = "`Oops.. Updater cannot continue due to "
@@ -268,10 +268,10 @@ async def upstream(event):
 
     if force_update:
         await event.edit(
-            "`Force-Syncing to latest stable userbot code, please wait...`"
+            "`جاري مزامنه اكواد التحديث انتضر من فضلك بعض الوقت`"
         )
     if conf == "الان":
-        await event.edit("`Updating userbot, please wait....`")
+        await event.edit("`اوك حبيبي جاي يتحدث البوت صبر شوي....`")
         await update(event, repo, ups_rem, ac_br)
     return
 
