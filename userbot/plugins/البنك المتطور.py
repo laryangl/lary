@@ -14,7 +14,7 @@ except:
 plugin_category = "tools"
 
 PING_PIC = os.environ.get("PING_PIC") or (
-    "https://telegra.ph/file/1700c83603e7d29b82ffc.png"
+    "https://telegra.ph/file/a4fc6361f56d9937b4b4a.jpg"
 )
 
 JM_TXT = os.environ.get("PING_TEXT") or "˛ ٰ𝖳𝖺𝗄𝖾 𝗆𝖾 𝗍ِ𝗈 𝗒𝗈ِ𝗎  𝗒𝗈𝗎 𝗋 𝖺𝗅𝗅 𝗂 𝗐ِ𝖺𝗇𝗍 🎀ٰ ."
@@ -43,7 +43,7 @@ async def _(event):
     await cat.delete()
     ms = (end - start).microseconds / 1000
     if PING_PIC:
-        caption = f"<b><i>{JM_TXT}<i><b>\n<code>┏━━━━━━━┓\n┃ ✦ {ms}\n┃ ✦ <b>{hmention}</b>\n┗━━━━━━━┛"
+        caption = f"<b><i>{JM_TXT}<i><b>\n<code>ⵧⵧⵧⵧⵧⵧ.•♫•♬•𝙡𝙖𝙧𝙮•♬•♫•.ⵧⵧⵧⵧⵧⵧ\n︙ ❆ {ms}\n︙ ❆ <b>@CXRCX</b>\nⵧⵧⵧⵧⵧⵧ.•♫•♬•𝙡𝙖𝙧𝙮•♬•♫•.ⵧⵧⵧⵧⵧⵧ"
         await event.client.send_file(
             event.chat_id,
             PING_PIC,
