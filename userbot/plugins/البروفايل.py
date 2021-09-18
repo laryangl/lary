@@ -18,20 +18,20 @@ plugin_category = "utils"
 
 
 # ====================== CONSTANT ===============================
-INVALID_MEDIA = "⌔︙ امتدا هذه الصورة غير صالح.```"
-PP_CHANGED = "⌔︙**  تم تغير صورة حسابك بنجاح ⌁،**"
-PP_TOO_SMOL = "** ⌔︙ هذه الصوره صغيره جدا قم بختيار صوره اخرى  ⌁،**"
-PP_ERROR = "** ⌔︙ حدث خطا اثناء معالجه الصوره  ⌁**"
-BIO_SUCCESS = "** ⌔︙ تم تغير بايو حسابك بنجاح ⌁،**"
-NAME_OK = "** ⌔︙ تم تغير اسم حسابك بنجاح ⌁**"
-USERNAME_SUCCESS = "**⌔︙ تم تغير معرف حسابك بنجاح ⌁،**"
-USERNAME_TAKEN = "**⌔︙  هذا المعرف مستخدم ⌁ ،**"
+INVALID_MEDIA = "❆︙ برو الامتداد مال مال صوره غير صالح.```"
+PP_CHANGED = "❆︙**  تدلل غيرتها **"
+PP_TOO_SMOL = "** ❆︙ صوره صغره ميصير **"
+PP_ERROR = "** ❆︙  اكو خطا مكدرت اعالجه**"
+BIO_SUCCESS = "** ❆︙ تدلل غيرتلك البايو ⌁،**"
+NAME_OK = "** ❆︙ تدلل غيرتلك الاسم**"
+USERNAME_SUCCESS = "**❆︙ تدلل غيرتلك المعرف،**"
+USERNAME_TAKEN = "**❆︙ هذا معرف المستخدم ضلع ،**"
 # ===============================================================
 
 
 @catub.cat_cmd(
-    pattern="وضع بايو (.*)",
-    command=("وضع بايو", plugin_category),
+    pattern="ضع بايو (.*)",
+    command=("ضع بايو", plugin_category),
     info={
         "header": "To set bio for this account.",
         "usage": "{tr}pbio <your bio>",
@@ -42,14 +42,14 @@ async def _(event):
     bio = event.pattern_match.group(1)
     try:
         await event.client(functions.account.UpdateProfileRequest(about=bio))
-        await edit_delete(event, "⌔︙ تـم تغـيير البـايو بنـجاح ✅")
+        await edit_delete(event, "❆︙ تـم تغـيير البـايو بنـجاح ✅")
     except Exception as e:
-        await edit_or_reply(event, f"**خطأ:**\n`{str(e)}`")
+        await edit_or_reply(event, f"**غلط:**\n`{str(e)}`")
 
 
 @catub.cat_cmd(
-    pattern="وضع اسم (.*)",
-    command=("وضع اسم", plugin_category),
+    pattern="ضع اسم (.*)",
+    command=("ضع اسم", plugin_category),
     info={
         "header": "To set/change name for this account.",
         "usage": ["{tr}pname firstname ; last name", "{tr}pname firstname"],
@@ -68,14 +68,14 @@ async def _(event):
                 first_name=first_name, last_name=last_name
             )
         )
-        await edit_delete(event, "⌔︙ تـم تغيير الاسـم بـنجاح ✅")
+        await edit_delete(event, "❆︙ تدلل غيرت الاسم  ✅")
     except Exception as e:
-        await edit_or_reply(event, f"**خطأ:**\n`{str(e)}`")
+        await edit_or_reply(event, f"**غلط:**\n`{str(e)}`")
 
 
 @catub.cat_cmd(
-    pattern="وضع صورة$",
-    command=("وضع صورة", plugin_category),
+    pattern="ضع صورة$",
+    command=("ضع صورة", plugin_category),
     info={
         "header": "To set profile pic for this account.",
         "usage": "{tr}ppic <reply to image or gif>",
@@ -96,12 +96,12 @@ async def _(event):
         await catevent.edit(str(e))
     else:
         if photo:
-            await catevent.edit("⌔︙ أنتـظر قلـيلا ")
+            await catevent.edit("❆︙ تدلل بس شوي صير ")
             if photo.endswith((".mp4", ".MP4")):
                 # https://t.me/tgbetachat/324694
                 size = os.stat(photo).st_size
                 if size > 2097152:
-                    await catevent.edit("⌔︙ يجب ان يكون الحجم اقل من 2 ميغا ✅")
+                    await catevent.edit("❆︙ لازم الحجم اقل من،2 ميكا ✅")
                     os.remove(photo)
                     return
                 catpic = None
@@ -116,9 +116,9 @@ async def _(event):
                     )
                 )
             except Exception as e:
-                await catevent.edit(f"**خطأ:**\n`{str(e)}`")
+                await catevent.edit(f"**غلط:**\n`{str(e)}`")
             else:
-                await edit_or_reply(catevent, "⌔︙ تم تغيير الصـورة بنـجاح ✅")
+                await edit_or_reply(catevent, "❆︙ تدلل غيرتها الك ✅")
     try:
         os.remove(photo)
     except Exception as e:
@@ -126,8 +126,8 @@ async def _(event):
 
 
 @catub.cat_cmd(
-    pattern="وضع معرف (.*)",
-    command=("وضع معرف", plugin_category),
+    pattern="ضع معرف (.*)",
+    command=("ضع معرف", plugin_category),
     info={
         "header": "To set/update username for this account.",
         "usage": "{tr}pusername <new username>",
@@ -142,7 +142,7 @@ async def update_username(username):
     except UsernameOccupiedError:
         await edit_or_reply(event, USERNAME_TAKEN)
     except Exception as e:
-        await edit_or_reply(event, f"**خطأ:**\n`{str(e)}`")
+        await edit_or_reply(event, f"**غلط:**\n`{str(e)}`")
 
 
 @catub.cat_cmd(
@@ -161,7 +161,7 @@ async def count(event):
     bc = 0
     b = 0
     result = ""
-    catevent = await edit_or_reply(event, "⌔︙ يتم الحساب انتـظر ")
+    catevent = await edit_or_reply(event, "❆︙ جاي احسب شوي صبر ")
     dialogs = await event.client.get_dialogs(limit=None, ignore_migrated=True)
     for d in dialogs:
         currrent_entity = d.entity
@@ -180,11 +180,11 @@ async def count(event):
         else:
             LOGS.info(d)
 
-    result += f"**⌔︙ الأشخاص:**\t**{u}**\n"
-    result += f"**⌔︙ الـمجموعات:**\t**{g}**\n"
-    result += f"**⌔︙ المجموعات الخارقه:**\t**{c}**\n"
-    result += f"**⌔︙ القنوات:**\t**{bc}**\n"
-    result += f"**⌔︙ البوتات:**\t**{b}**"
+    result += f"**❆︙ الناس:**\t**{u}**\n"
+    result += f"**❆︙ الكروبات:**\t**{g}**\n"
+    result += f"**❆︙ الكروبات الي بيها حتيت هواي:**\t**{c}**\n"
+    result += f"**❆︙ القنوات:**\t**{bc}**\n"
+    result += f"**❆︙ البوتات:**\t**{b}**"
 
     await catevent.edit(result)
 
@@ -219,7 +219,7 @@ async def remove_profilepic(delpfp):
         for sep in pfplist.photos
     ]
     await delpfp.client(DeletePhotosRequest(id=input_photos))
-    await edit_delete(delpfp, f"⌔︙ تـم الحذف {len(input_photos)} من صور حسابك بنجاح ✅")
+    await edit_delete(delpfp, f"❆︙ تـم الحذف {len(input_photos)} من صور حسابك بنجاح ✅")
 
 
 @catub.cat_cmd(
@@ -233,7 +233,7 @@ async def remove_profilepic(delpfp):
 async def _(event):
     "To list all public channels and groups."
     result = await event.client(GetAdminedPublicChannelsRequest())
-    output_str = "⌔︙ جميع القنوات والمجموعات التي قمت بأنشائها :\n"
+    output_str = "❆︙مل لكروبات الي سويتهن:\n"
     output_str += "".join(
         f" - {channel_obj.title} @{channel_obj.username} \n"
         for channel_obj in result.chats
@@ -241,4 +241,4 @@ async def _(event):
     await edit_or_reply(event, output_str)
 
 
-# ملف البروفايل خاص بقناة جمثون
+##خاص لسورس لاري ##
