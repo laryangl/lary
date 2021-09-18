@@ -56,7 +56,7 @@ async def amireallyalive(event):
             event.chat_id, PIC, caption=cat_caption, reply_to=reply_to_id
         )
 
-@catub.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
+@catub.bot.on(CallbackQuery(data=re.compile(b"stats")))
 async def on_plug_in_callback_query_handler(event):
     statstext = await catalive(StartTime)
     await event.answer(statstext, cache_time=0, alert=True)
