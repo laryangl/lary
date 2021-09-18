@@ -11,7 +11,7 @@ from telethon.errors.rpcerrorlist import (
 )
 from telethon.events import CallbackQuery
 
-from userbot import StartTime, jmthon, JMVERSION
+from userbot import StartTime, catub, JMVERSION
 
 from ..Config import Config
 from ..core.managers import edit_or_reply
@@ -22,7 +22,7 @@ from . import mention
 
 plugin_category = "utils"
 
-@jmthon.ar_cmd(
+@catub.cat_cmd(
     pattern="المطور$",
     command=("المطور", plugin_category),
     info={
@@ -39,7 +39,7 @@ async def amireallyalive(event):
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  - "
     CUSTOM_ALIVE_TEXT = gvarstatus("ALIVE_TEXT")
-    CAT_IMG = gvarstatus("ALIVE_PIC") or " https://telegra.ph/file/1700c83603e7d29b82ffc.png "
+    CAT_IMG = gvarstatus("ALIVE_PIC") or " https://telegra.ph/file/e92f1373596365f34b2f8.jpg "
     if CAT_IMG:
         CAT = [x for x in CAT_IMG.split()]
         A_IMG = list(CAT)
@@ -56,7 +56,7 @@ async def amireallyalive(event):
             event.chat_id, PIC, caption=cat_caption, reply_to=reply_to_id
         )
 
-@jmthon.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
 async def on_plug_in_callback_query_handler(event):
     statstext = await catalive(StartTime)
     await event.answer(statstext, cache_time=0, alert=True)
