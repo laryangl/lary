@@ -39,7 +39,7 @@ async def amireallyalive(event):
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  - "
     CUSTOM_ALIVE_TEXT = gvarstatus("ALIVE_TEXT")
-    CAT_IMG = gvarstatus("ALIVE_PIC") or " https://telegra.ph/file/e92f1373596365f34b2f8.jpg "
+    CAT_IMG = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/e92f1373596365f34b2f8.jpg"
     if CAT_IMG:
         CAT = [x for x in CAT_IMG.split()]
         A_IMG = list(CAT)
@@ -56,7 +56,7 @@ async def amireallyalive(event):
             event.chat_id, PIC, caption=cat_caption, reply_to=reply_to_id
         )
 
-@catub.cat.on(CallbackQuery(data=re.compile(b"stats")))
+@catub.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
 async def on_plug_in_callback_query_handler(event):
     statstext = await catalive(StartTime)
     await event.answer(statstext, cache_time=0, alert=True)
