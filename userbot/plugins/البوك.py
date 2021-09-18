@@ -19,7 +19,11 @@ from . import (
 
 plugin_category = "utils"
 DEFAULTUSER = str(AUTONAME) if AUTONAME else str(ALIVE_NAME)
-DEFAULTUSERBIO = str(DEFAULT_BIO) if DEFAULT_BIO else "𝖳𝖺𝗄𝖾 𝗆𝖾 𝗍ِ𝗈 𝗒𝗈ِ𝗎  𝗒𝗈𝗎 𝗋 𝖺𝗅𝗅 𝗂 𝗐ِ𝖺𝗇𝗍 🎀 @TTTYT_M"
+DEFAULTUSERBIO = (
+    str(DEFAULT_BIO)
+    if DEFAULT_BIO
+    else "𝖳𝖺𝗄𝖾 𝗆𝖾 𝗍ِ𝗈 𝗒𝗈ِ𝗎  𝗒𝗈𝗎 𝗋 𝖺𝗅𝗅 𝗂 𝗐ِ𝖺𝗇𝗍 🎀 @TTTYT_M"
+)
 
 
 @catub.cat_cmd(
