@@ -25,7 +25,7 @@ async def fetch_info(replied_user, event):
             user_id=replied_user.user.id, offset=42, max_id=0, limit=80
         )
     )
-    replied_user_profile_photos_count = "⌔︙ هذا المستخدم لم يضع اي صورة"
+    replied_user_profile_photos_count = "❆︙ محاط صوره لازم يحط"
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
     except AttributeError:
@@ -51,23 +51,23 @@ async def fetch_info(replied_user, event):
     first_name = (
         first_name.replace("\u2060", "")
         if first_name
-        else ("⌔︙ هذا المستخدم ليس لديه اسم اول")
+        else ("❆︙ اسمه الاول ماكو ")
     )
     last_name = last_name.replace("\u2060", "") if last_name else (" ")
     username = (
-        "@{}".format(username) if username else ("⌔︙ هـذا الشخص ليس لديـه معـرف ")
+        "@{}".format(username) if username else ("❆︙ ضلعي هذا ماعنده معرف  ")
     )
-    user_bio = "⌔︙ هذا المستخدم ليس لديه اي نبـذة" if not user_bio else user_bio
-    caption = "✛━━━━━━━━━━━━━✛ \n\n"
-    caption += f"<b>- الاسـم ›</b> {first_name} {last_name}\n"
-    caption += f"<b>- المـعـرف ›</b> {username}\n"
-    caption += f"<b>- الايـدي  ›</b> <code>{user_id}</code>\n"
-    caption += f"<b>- عـدد الصـورة ›</b> {replied_user_profile_photos_count}\n"
-    caption += f"<b>-️ الـنبـذه ›</b> \n<code>{user_bio}</code>\n\n"
-    caption += f"<b>- الـمجموعات المشتـركة ›</b> {common_chat}\n"
+    user_bio = "❆︙ ما مخلي نبذا خلي يحط وتدلل" if not user_bio else user_bio
+    caption = "ⵧⵧⵧⵧⵧⵧ.•♫•♬•𝙡𝙖𝙧𝙮•♬•♫•.ⵧⵧⵧⵧⵧⵧ\n\n"
+    caption += f"<b>- اسمه ›</b> {first_name} {last_name}\n"
+    caption += f"<b>- معرفه ›</b> {username}\n"
+    caption += f"<b>- الايدي   ›</b> <code>{user_id}</code>\n"
+    caption += f"<b>-  الصور شكد ›</b> {replied_user_profile_photos_count}\n"
+    caption += f"<b>-️ النبذا  ›</b> \n<code>{user_bio}</code>\n\n"
+    caption += f"<b>-  الكروبات الي بينك وبينه ›</b> {common_chat}\n"
     caption += f"<b>- رابط حسـابه ›</b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>\n'
-    caption += f"✛━━━━━━━━━━━━━✛"
+    caption += f"ⵧⵧⵧⵧⵧⵧ.•♫•♬•𝙡𝙖𝙧𝙮•♬•♫•.ⵧⵧⵧⵧⵧⵧ"
     return photo, caption
 
 
@@ -86,7 +86,7 @@ async def _(event):
     if not replied_user:
         return
     catevent = await edit_or_reply(
-        event, "⌔︙ جار إحضار معلومات المستخدم اننظر قليلا ⚒️"
+        event, "❆︙ جار إحضار معلومات المستخدم اننظر قليلا ⚒️"
     )
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
     user_id = replied_user.user.id
@@ -126,10 +126,10 @@ async def _(event):
     else:
         cas = "**Antispam(CAS) Banned :** `Couldn't Fetch`"
     caption = """**معلومات المسـتخدم[{}](tg://user?id={}):
-   ⌔︙⚕️ الايدي: **`{}`
-   ⌔︙👥**المجموعات المشتركه : **`{}`
-   ⌔︙🌏**رقم قاعده البيانات : **`{}`
-   ⌔︙🔏**هل هو حساب موثق  : **`{}`
+   ❆︙⚕️ الايدي: **`{}`
+   ❆︙👥**المجموعات المشتركه : **`{}`
+   ❆︙🌏**رقم قاعده البيانات : **`{}`
+   ❆︙🔏**هل هو حساب موثق  : **`{}`
 """.format(
         first_name,
         user_id,
@@ -159,13 +159,13 @@ async def who(event):
     replied_user, reason = await get_user_from_event(event)
     if not replied_user:
         return
-    cat = await edit_or_reply(event, "**⌔︙ يتم استخراج معلومات المستخدم **")
+    cat = await edit_or_reply(event, "**❆︙ جاي ابحوش بل حسابات صبر شوي   **")
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
         return await edit_or_reply(
-            cat, "**⌔︙ لم يتم العثور على معلومات لهذا المستخدم **"
+            cat, "**❆︙ ماكو هيج حساب  **"
         )
     message_id_to_reply = await reply_id(event)
     try:
@@ -203,4 +203,4 @@ async def permalink(mention):
     if custom:
         return await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
     tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
-    await edit_or_reply(mention, f"⌔︙[{tag}](tg://user?id={user.id})")
+    await edit_or_reply(mention, f"❆︙[{tag}](tg://user?id={user.id})")
