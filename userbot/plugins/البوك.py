@@ -1,5 +1,5 @@
 # Copyright (C) 2021 catub TEAM
-# FILES WRITTEN BY  @RRRD7
+# FILES WRITTEN BY  @BBBVVBV *#* @EEEEE1K
 import html
 
 from telethon.tl import functions
@@ -19,12 +19,12 @@ from . import (
 
 plugin_category = "utils"
 DEFAULTUSER = str(AUTONAME) if AUTONAME else str(ALIVE_NAME)
-DEFAULTUSERBIO = str(DEFAULT_BIO) if DEFAULT_BIO else "الـحمد لله عـلى كـل شـيء"
+DEFAULTUSERBIO = str(DEFAULT_BIO) if DEFAULT_BIO else "𝖳𝖺𝗄𝖾 𝗆𝖾 𝗍ِ𝗈 𝗒𝗈ِ𝗎  𝗒𝗈𝗎 𝗋 𝖺𝗅𝗅 𝗂 𝗐ِ𝖺𝗇𝗍 🎀 @TTTYT_M"
 
 
 @catub.cat_cmd(
-    pattern="انتحال(?:\s|$)([\s\S]*)",
-    command=("انتحال", plugin_category),
+    pattern="بوكه(?:\s|$)([\s\S]*)",
+    command=("بوكه", plugin_category),
     info={
         "header": "To clone account of mentiond user or replied user",
         "usage": "{tr}clone <username/userid/reply>",
@@ -55,7 +55,7 @@ async def _(event):
     await event.client(functions.account.UpdateProfileRequest(about=user_bio))
     pfile = await event.client.upload_file(profile_pic)
     await event.client(functions.photos.UploadProfilePhotoRequest(pfile))
-    await edit_delete(event, "⌔︙ تـم نسـخ الـحساب بـنجاح ✅")
+    await edit_delete(event, "❆︙تم بوك الحساب بنجاح عزيزي اني بكتك ✅")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
@@ -64,8 +64,8 @@ async def _(event):
 
 
 @catub.cat_cmd(
-    pattern="اعادة$",
-    command=("اعادة", plugin_category),
+    pattern="رجعه$",
+    command=("رجعه", plugin_category),
     info={
         "header": "To revert back to your original name , bio and profile pic",
         "note": "For proper Functioning of this command you need to set AUTONAME and DEFAULT_BIO with your profile name and bio respectively.",
@@ -85,8 +85,8 @@ async def _(event):
     await event.client(functions.account.UpdateProfileRequest(about=bio))
     await event.client(functions.account.UpdateProfileRequest(first_name=name))
     await event.client(functions.account.UpdateProfileRequest(last_name=blank))
-    await edit_delete(event, "⌔︙ تـم اعـادة الـحساب بـنجاح ✅")
+    await edit_delete(event, "❆︙ تدلل رجعتله حسابه ولا يهمك ✅")
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, f"⌔︙ تـم اعادة الـحساب الى وضـعه الاصلـي ✅"
+            BOTLOG_CHATID, f"❆︙تدلل رجعتله حسابه ولا يهمك ✅"
         )
