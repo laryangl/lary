@@ -184,7 +184,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
 
 @catub.cat_cmd(
-    pattern="تحديث(| الان)?$",
+    pattern="تحديث(| هسه)?$",
     command=("تحديث", plugin_category),
     info={
         "header": "To update userbot.",
@@ -270,7 +270,7 @@ async def upstream(event):
         await event.edit(
             "`جاري مزامنه اكواد التحديث انتضر من فضلك بعض الوقت`"
         )
-    if conf == "الان":
+    if conf == "هسه":
         await event.edit("`اوك حبيبي جاي يتحدث البوت صبر شوي....`")
         await update(event, repo, ups_rem, ac_br)
     return
