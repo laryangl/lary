@@ -40,12 +40,12 @@ async def amireallyalive(event):
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await edit_or_reply(event, "Checking...")
+    await edit_or_reply(event, ".•♫•♬•.•♫•♬•Checking in 𝙥𝙧𝙤𝙜𝙧𝙚𝙨𝙨•♬•♫•.•♬•♫•....")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  - ༻ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ MY BOT IS RUNNING SUCCESSFULLY ✮**"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**•♫•♬•𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙏𝙤 𝙇𝙖𝙍𝙮 𝙗𝙤𝙩•♬•♫•**"
     CAT_IMG = (
         gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/636465f8d4ffc5ee93bb2.jpg"
     )
