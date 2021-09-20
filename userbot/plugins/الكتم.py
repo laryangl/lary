@@ -11,7 +11,7 @@ from . import BOTLOG, BOTLOG_CHATID, get_user_from_event
 
 plugin_category = "admin"
 
-# =================== الكـــــــــــــــتم  ===================  #
+
 
 
 @catub.cat_cmd(
@@ -21,7 +21,7 @@ plugin_category = "admin"
 async def startgmute(event):
     "To mute a person in all groups where you are admin."
     if event.is_private:
-        await event.edit("**𖡛... قـد تحـدث بعـض المـشاكـل أو الأخـطاء ...𖡛**")
+        await event.edit("**.•♫•♬•𝙨𝙤𝙢𝙚 𝙥𝙧𝙤𝙗𝙡𝙚𝙢𝙨 𝙤𝙧 𝙚𝙧𝙧𝙤𝙧𝙨 𝙢𝙖𝙮 𝙤𝙘𝙘𝙪𝙧•♬•♫•.**")
         await asyncio.sleep(2)
         userid = event.chat_id
         reason = event.pattern_match.group(1)
@@ -58,7 +58,7 @@ async def startgmute(event):
         else:
             await edit_or_reply(
                 event,
-                f"** تـم كـتم الـمستخـدم بـنجاح  ،🔕 **",
+                f"**.•♫•♬•.User muted successfully  . مكتوم•♬•♫•.**",
             )
     if BOTLOG:
         reply = await event.get_reply_message()
@@ -94,7 +94,7 @@ async def startgmute(event):
 async def endgmute(event):
     "To remove gmute on that person."
     if event.is_private:
-        await event.edit("**𖡛... قـد تحـدث بعـض المـشاكـل أو الأخـطاء ...𖡛**")
+        await event.edit("**.•♫•♬•𝙨𝙤𝙢𝙚 𝙥𝙧𝙤𝙗𝙡𝙚𝙢𝙨 𝙤𝙧 𝙚𝙧𝙧𝙤𝙧𝙨 𝙢𝙖𝙮 𝙤𝙘𝙘𝙪𝙧•♬•♫•.**")
         await asyncio.sleep(2)
         userid = event.chat_id
         reason = event.pattern_match.group(1)
