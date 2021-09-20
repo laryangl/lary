@@ -701,7 +701,7 @@ async def approve_p_m(event):  # sourcery no-metrics
             sqllist.rm_from_list("pmoptions", chat.id)
         await edit_delete(
             event,
-            f"تم السماح ل [{user.first_name}](tg://user?id={user.id}) ",
+            f"تم قبول طلب المراسله احرص على ان لاتزعج المطور{user.first_name}](tg://user?id={user.id}) ",
         )
         try:
             PMMESSAGE_CACHE = sql.get_collection("pmmessagecache").json
@@ -757,7 +757,7 @@ async def disapprove_p_m(event):
             user, reason = await get_user_from_event(event, secondgroup=True)
             if not user:
                 return
-    if reason == "الكل":
+    if reason == "all":
         pmpermit_sql.disapprove_all()
         return await edit_delete(event, "** حسنا! لقد رفضت الجميع بنجاح. **")
     if not reason:
@@ -776,10 +776,10 @@ async def disapprove_p_m(event):
 
 
 @catub.cat_cmd(
-    pattern="block(?:\s|$)([\s\S]*)",
+    pattern="بلوك(?:\s|$)([\s\S]*)",
     command=("block", plugin_category),
     info={
-        "header": "To block user to direct message you.",
+        "header": ".•♫•♬•𝗧𝗼 𝗯𝗹𝗼𝗰𝗸 𝘂𝘀𝗲𝗿 𝘁𝗼 𝗱𝗶𝗿𝗲𝗰𝘁 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘆𝗼𝘂 تم الحضر•♬•♫•..",
         "usage": [
             "{tr}block <username/reply reason> in group",
             "{tr}block <reason> in pm",
@@ -832,10 +832,10 @@ async def block_p_m(event):
 
 
 @catub.cat_cmd(
-    pattern="unblock(?:\s|$)([\s\S]*)",
+    pattern="انبلوك(?:\s|$)([\s\S]*)",
     command=("unblock", plugin_category),
     info={
-        "header": "To unblock a user.",
+        "header": "𝙏𝙤 𝙪𝙣𝙗𝙡𝙤𝙘𝙠 𝙖 𝙪𝙨𝙚𝙧.تم الالغاء",
         "usage": [
             "{tr}unblock <username/reply reason> in group",
             "{tr}unblock <reason> in pm",
@@ -865,7 +865,7 @@ async def unblock_pm(event):
 
 
 @catub.cat_cmd(
-    pattern="listapproved$",
+    pattern="الحمايه$",
     command=("listapproved", plugin_category),
     info={
         "header": "To see list of approved users.",
