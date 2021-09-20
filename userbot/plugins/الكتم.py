@@ -43,7 +43,7 @@ async def startgmute(event):
     if is_muted(userid, "gmute"):
         return await edit_or_reply(
             event,
-            f"**𖡛... هـذا الشـخص مكـتوم بـنجاح ...𖡛**",
+            f"**𝘽𝙖𝘽𝙚 𝙞𝙩𝙨 𝙢𝙪𝙩𝙚 @CXRCX**",
         )
     try:
         mute(userid, "gmute")
