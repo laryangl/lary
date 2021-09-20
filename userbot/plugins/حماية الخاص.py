@@ -701,7 +701,7 @@ async def approve_p_m(event):  # sourcery no-metrics
             sqllist.rm_from_list("pmoptions", chat.id)
         await edit_delete(
             event,
-            f"تم قبول طلب المراسله احرص على ان لاتزعج المطور{user.first_name}](tg://user?id={user.id}) ",
+            f"تم السماح ل {user.first_name}](tg://user?id={user.id}) ",
         )
         try:
             PMMESSAGE_CACHE = sql.get_collection("pmmessagecache").json
@@ -753,25 +753,27 @@ async def disapprove_p_m(event):
 
     else:
         reason = event.pattern_match.group(2)
-        if reason != "الكل":
+        if reason != "all":
             user, reason = await get_user_from_event(event, secondgroup=True)
             if not user:
                 return
     if reason == "all":
         pmpermit_sql.disapprove_all()
-        return await edit_delete(event, "** حسنا! لقد رفضت الجميع بنجاح. **")
+        return await edit_delete(
+            event, "__Ok! I have disapproved everyone successfully.__"
+        )
     if not reason:
         reason = "Not Mentioned."
     if pmpermit_sql.is_approved(user.id):
         pmpermit_sql.disapprove(user.id)
         await edit_or_reply(
             event,
-            f"[{user.first_name}](tg://user?id={user.id}) تم رفضه",
+            f"[{user.first_name}](tg://user?id={user.id}) __is disapproved to personal message me.__\n**Reason:**__ {reason}__",
         )
     else:
         await edit_delete(
             event,
-            f"[{user.first_name}](tg://user?id={user.id}) لم تتم الموافقة عليه بعد ",
+            f"[{user.first_name}](tg://user?id={user.id}) __is not yet approved__",
         )
 
 
@@ -791,7 +793,7 @@ async def block_p_m(event):
     if gvarstatus("pmpermit") is None:
         return await edit_delete(
             event,
-            f"__Turn on pmpermit by doing __`{cmdhd}pmguard on` __for working of this plugin__",
+            f"𝗧𝗼 𝗯𝗹𝗼𝗰𝗸 𝘂𝘀𝗲𝗿 𝘁𝗼 𝗱𝗶𝗿𝗲𝗰𝘁 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝘆𝗼𝘂 تم الحضر•♬•♫•..`{cmdhd}لم يذكر` __بسبب",
         )
     if event.is_private:
         user = await event.get_chat()
