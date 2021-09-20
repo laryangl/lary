@@ -256,7 +256,7 @@ async def do_pm_enquire_action(event, chat):
     await event.client(functions.contacts.BlockRequest(chat.id))
     the_message = f"#BLOCKED_PM\
                 \n[{get_display_name(chat)}](tg://user?id={chat.id}) is blocked\
-                \n**Reason:** __He/She opted for enquire option but didn't wait after being told also and kept on messaging so blocked.__"
+                \n**Reason:** __•♫•♬•انت الان محضور لايمكنك مراسلتي•♬•♫•.__"
     sqllist.rm_from_list("pmenquire", chat.id)
     try:
         return await event.client.send_message(
@@ -862,7 +862,7 @@ async def unblock_pm(event):
         reason = "Not Mentioned."
     await event.client(functions.contacts.UnblockRequest(user.id))
     await event.edit(
-        f"[{user.first_name}](tg://user?id={user.id}) __is unblocked he/she can personal message you from now on.__\n**Reason:** __{reason}__"
+        f"[{user.first_name}](tg://user?id={user.id}) __is تم الغاء الحضر/ .•♫•♬•𝙐𝙣 𝘽𝙡𝙤𝙘𝙠 •♬•♫•. .__\n**Reason:** __{reason}__"
     )
 
 
