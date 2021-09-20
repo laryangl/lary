@@ -36,9 +36,7 @@ async def _(event):
         return
     reply_to_id = await reply_id(event)
     start = datetime.now()
-    cat = await edit_or_reply(
-        event, "<b><i> .•♫•♬•𝙋𝙞𝙉𝙜•♬•♫•. </b></i>", "html"
-    )
+    cat = await edit_or_reply(event, "<b><i> .•♫•♬•𝙋𝙞𝙉𝙜•♬•♫•. </b></i>", "html")
     end = datetime.now()
     await cat.delete()
     ms = (end - start).microseconds / 1000

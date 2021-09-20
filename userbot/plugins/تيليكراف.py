@@ -7,8 +7,6 @@ from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 from telethon.utils import get_display_name
 
-from userbot import iqthon
-
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_or_reply
@@ -80,7 +78,7 @@ async def _(event):
             ms = (end - start).seconds
             os.remove(downloaded_file_name)
             await catevent.edit(
-                 f"**❆︙ الرابـط ☍ : ** [Press here](https://telegra.ph{media_urls[0]})\
+                f"**❆︙ الرابـط ☍ : ** [Press here](https://telegra.ph{media_urls[0]})\
                     \n**❆︙الوقـت المستغـرق ⏱  : ** `{ms} الثوانـي.`",
                 link_preview=True,
             )

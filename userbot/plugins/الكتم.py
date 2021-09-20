@@ -12,8 +12,6 @@ from . import BOTLOG, BOTLOG_CHATID, get_user_from_event
 plugin_category = "admin"
 
 
-
-
 @catub.cat_cmd(
     pattern="كتم(?:\s|$)([\s\S]*)",
     command=("كتم", plugin_category),
